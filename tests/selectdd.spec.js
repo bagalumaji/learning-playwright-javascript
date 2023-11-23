@@ -8,7 +8,9 @@ test("select dropdown test",async function(){
     await page.goto("https://www.amazon.in");
 
     const title = await page.title();
-
+    const searchDropdownDescription = await page.locator("id=searchDropdownBox");
+    await searchDropdownDescription.selectOption("search-alias=fashion");
+    await page.waitForTimeout(6000);
     page.close();
     context.close();
 
