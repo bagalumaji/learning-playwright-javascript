@@ -12,6 +12,7 @@ test.describe("select dropdown test", () => {
         await drpdownSelect.selectOption({index: 3});
         await drpdownSelect.selectOption({label: "Monday"});
         await expect(drpdownSelect).toHaveValue('Monday');
+
         // 2nd way
 
         const allTextContent = await drpdownSelect.textContent();
