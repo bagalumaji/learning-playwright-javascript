@@ -8,4 +8,8 @@ test('create a chromium context', async ()=>{
     await page.goto("https://the-internet.herokuapp.com/windows")
     const title = await page.title();
     console.log(title);
+
+    await page.close();
+    await context.close();
+    await browser.close();
 })
