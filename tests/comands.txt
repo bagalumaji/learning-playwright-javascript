@@ -1,0 +1,84 @@
+
+npm init playwright@latest
+
+-----------
+playwright
+-----------
+1) page.locator('selector')
+2) page.goto('url')
+3) page.locator('selector').click()
+4) locator.click()
+5) page.click('selector')
+6) page.locator('selector').check() // to click on checkbox and radio
+7) page.locator('selector').fill('text') // enter value in text box
+8) page.locator('selector').selectOption(visible text)
+9) page.locator('selector').selectOption(value)
+10) page.locator('selector').selectOption({index:number})
+11) page.locator('selector').selectOption({value:text})
+12) page.locator('selector').selectOption({visible:text})
+13) page.locator('selector').selectOption([value-1,value-2,...])
+14) page.locator('selector').selectOption([{value:value-1},{value:value-2},...])
+15) page.$eval('selector',function) // return - single value
+16) page.$$eval('selector',function) // return - multiple values and operate on multiple locator
+17) page.locator('selector').textContent() // text of an element
+18) page.title() // returns page title
+19) page.url() // returns current url
+20) page.locator('selector').innerText() // text of an element
+21) page.locator('selector').first()
+22) page.locator('selector').last()
+23) page.locator('selector').nth(index)
+24) page.frame('selector')
+25) page.getByRole('selector',{name:'acc name'}0
+26) page.getByTitle('title attribute name')
+27) page.getByLabel('label')
+
+
+
+-------
+jest - assertion
+--------------
+1) expect(title).toBe('title') // to exact match
+2) expect(value).toBeTruthy() // boolean value comparison
+3) expect(locator).toHaveValue('value');
+
+
+-----------
+test -framework
+-----------
+1)test('test name',async function({fixture}){});
+2)test.skip('test name',async function({fixture}){});  // skip
+3)test.only('test name',async function({fixture}){}); // only test will be executed
+
+4)
+    test.describe('suite name',()=>{
+        test('test name',async function({fixture}){});
+    })
+
+5)
+    test.describe('suite name',()=>{
+            test.beforeEach('name-optional',async({fixture}){});
+            test('test name',async function({fixture}){});
+            test.afterEach('name-optional',async({fixture}){});
+        })
+
+6)
+    test.describe('suite name',()=>{
+            test.before('name-optional',async({fixture}){});
+            test('test name',async function({fixture}){});
+            test.after('name-optional',async({fixture}){});
+        })
+
+
+
+
+
+
+----------
+execution
+----------
+
+1) npx playwright test   // all test execution
+2) npx playwright test test-name // specific test
+3) npx playwright test test-name --headed // test in headless mode
+4)
+
