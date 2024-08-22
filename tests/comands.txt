@@ -28,9 +28,20 @@ playwright
 22) page.locator('selector').last()
 23) page.locator('selector').nth(index)
 24) page.frame('selector')
-25) page.getByRole('selector',{name:'acc name'}0
+25) page.getByRole('selector',{name:'acc name'})
 26) page.getByTitle('title attribute name')
 27) page.getByLabel('label')
+28) page.locator('').pressSequentially('text');
+29) page.locator('').pressSequentially('text',{delay:100})
+30) page.frames();
+31) page.frame('name-locator of frame')
+32) page.frame({url:'url'})
+33) page.frameLocator("frame-locator")
+34) page.frame('name').frameLocator('locator')
+35) page.frame('name').childFrames()
+
+
+
 
 
 
