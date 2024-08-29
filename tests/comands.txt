@@ -39,6 +39,24 @@ playwright
 33) page.frameLocator("frame-locator")
 34) page.frame('name').frameLocator('locator')
 35) page.frame('name').childFrames()
+36) page.locator('').click({button:"right"})
+37) page.locator('').click({button:"left"})
+38) page.locator('').click({button:"middle"})
+39) page.locator('').hover()
+40) page.locator('').click({force:true})
+41) page.locator('type=file').setInputFiles("file location");
+
+42)     const fileUploadLocator=page.locator('file type not mentioned');
+        page.on("filechooser",function(fs){
+            fs.setFiles('file location');
+        })
+        await fileUploadLocator.click();
+
+43) page.locator(sourceLocator).dragTo(page.locator(destinationLocator));
+
+
+
+
 
 
 
