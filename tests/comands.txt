@@ -52,7 +52,14 @@ playwright
         })
         await fileUploadLocator.click();
 
-43) page.locator(sourceLocator).dragTo(page.locator(destinationLocator));
+43) const fileChooserPromise = page.waitForEvent('filechooser');
+    await page.locator('').click();
+    const fileChooser = await fileChooserPromise;
+    await fileChooser.setFiles('file location');
+
+    //await fileChooserPromise.setFiles('file location');
+
+44) page.locator(sourceLocator).dragTo(page.locator(destinationLocator));
 
 
 
