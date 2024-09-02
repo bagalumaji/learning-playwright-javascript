@@ -14,3 +14,18 @@ test('slider test',async ({page})=>{
     }
 
 })
+test.only('slider test-1',async ({page})=>{
+    await page.goto("https://www.lambdatest.com/selenium-playground/drag-drop-range-sliders-demo");
+    const slider = await page.locator('input[type="range"]');
+    const sliderValue= await page.locator("//output[@id=\"range\"]");
+    const value='80';
+    await slider.first().click();
+    while(true){
+        if(await sliderValue.first().textContent()===value){
+            break;
+        }
+        await slider.first().press("ArrowRight");
+        await page.waitForTimeout(500);
+    }
+
+})
