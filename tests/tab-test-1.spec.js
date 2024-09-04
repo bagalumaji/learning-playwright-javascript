@@ -7,7 +7,6 @@ test('tab test - 1',async function(){
     const page1 = await context.newPage();
     const page2 = await context.newPage();
     await page1.waitForTimeout(3000);
-    await page2.waitForTimeout(3000);
     await page1.goto('https://the-internet.herokuapp.com/windows')
     await page2.goto('https://www.google.com/')
     await page1.waitForTimeout(3000);
@@ -31,7 +30,7 @@ test('tab test - 1',async function(){
 
 })
 
-test.only('tab-test-2',async function({browser}){
+test('tab-test-2',async function({browser}){
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://the-internet.herokuapp.com/windows");
@@ -53,4 +52,9 @@ test.only('tab-test-2',async function({browser}){
     await page.close();
     await context.close();
 
+})
+
+test.only('tab handling test',async function({page}){
+    await page.goto("https://the-internet.herokuapp.com/windows");
+   // await
 })
