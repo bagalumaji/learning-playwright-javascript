@@ -1,7 +1,7 @@
-const{test,chromium} = require('@playwright/test')
-test('tab test - 1',async function(){
+const {test, chromium} = require('@playwright/test')
+test('tab test - 1', async function () {
 
-    const browser = await chromium.launch({headless: false,channel:'chrome'});
+    const browser = await chromium.launch({headless: false, channel: 'chrome'});
     const context = await browser.newContext();
 
     const page1 = await context.newPage();
@@ -13,8 +13,8 @@ test('tab test - 1',async function(){
     await page2.waitForTimeout(3000);
 
     const title = await page1.title();
-    console.log('page 2 title : ',await page2.title());
-    console.log("title : ",title);
+    console.log('page 2 title : ', await page2.title());
+    console.log("title : ", title);
     await page1.waitForTimeout(3000);
     const clickHereLink = await page1.getByText("Click Here");
     await clickHereLink.focus();
@@ -30,18 +30,18 @@ test('tab test - 1',async function(){
 
 })
 
-test('tab-test-2',async function({browser}){
+test('tab-test-2', async function ({browser}) {
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto("https://the-internet.herokuapp.com/windows");
     const clickHereLink = await page.getByText("Click Here");
-    const pageEventPromise = context.waitForEvent('page');
+   // const pageEventPromise = context.waitForEvent('page');
     await clickHereLink.click();
     await page.waitForTimeout(3000);
     //const page2 = await pageEventPromise;
     //await page2.waitForTimeout(3000);
     // console.log(await page2.title());
-    const allPages=context.pages();
+    const allPages = context.pages();
     console.log(await allPages[0].title());
 
 
@@ -54,7 +54,20 @@ test('tab-test-2',async function({browser}){
 
 })
 
-test.only('tab handling test',async function({page}){
+test.only('tab handling test', async function () {
+    const browser=await chromium.launch({headless: false, channel: 'chrome'});
+    const context = await browser.newContext();
+    const page = await context.newPage();
     await page.goto("https://the-internet.herokuapp.com/windows");
-   // await
+    const clickHereLocator = await page.getByText("Click Here");
+    const pageEvenPromise = context.waitForEvent('page');
+    await clickHereLocator.click();
+    const newPage = await pageEvenPromise;
+    console.log(await newPage.title());
+    await newPage.waitForTimeout(3000);
+
+    await newPage.close();
+    await page.close();
+    await context.close();
+    await browser.close();
 })
