@@ -1,15 +1,15 @@
 export default class LoginPage {
-    #headerTextSelector="";
-    #textBoxUserNameSelector="";
-    #textBoxPasswordSelector="";
-    #btnLoginSelector="";
+    #headerTextSelector="text=Login Page";
+    #textBoxUserNameSelector="id=username";
+    #textBoxPasswordSelector="id=password";
+    #btnLoginSelector="//button[normalize-space()='Login']";
 
     constructor(page) {
         this.page = page;
     }
 
     async open(){
-        await this.page.goto("");
+        await this.page.goto("https://the-internet.herokuapp.com/login");
     }
     get #headerTextLocator(){
         return this.page.locator(this.#headerTextSelector);
@@ -21,7 +21,7 @@ export default class LoginPage {
         return this.page.locator(this.#textBoxPasswordSelector);
     }
     get #btnLoginLocator(){
-        return this.page.locator(this.loginButtonSelector);
+        return this.page.locator(this.#btnLoginSelector);
     }
 
     async isDisplayedHeaderText(){
@@ -29,5 +29,11 @@ export default class LoginPage {
     }
     async enterUserName(username){
         await this.#textBoxUserNameLocator.fill(username);
+    }
+    async enterPassword(password){
+        await this.#textBoxPasswordLocator.fill(password);
+    }
+    async clickOnLoginButton(){
+        await this.#btnLoginLocator.click();
     }
 }
