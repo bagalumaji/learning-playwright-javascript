@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "username": "tomsmith",
+    "password": "SuperSecretPassword!",
+    "message": "You logged into a secure area!"
+  },
+  {
+    "id": 2,
+    "username": "tomsmith12345",
+    "password": "SuperSecretPassword!",
+    "message": "Your username is invalid!"
+  },
+  {
+    "id": 3,
+    "username": "tomsmith",
+    "password": "Super",
+    "message": "Your password is invalid!"
+  }
+]
