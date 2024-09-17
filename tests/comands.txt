@@ -84,9 +84,53 @@ playwright
 49) // get text of text box
     const textBoxValue = await page.locator('text box locator').inputValue();
 
+50) DDT - csv
+     npm install csv-parse
+     import fs from 'fs'
+     import path from 'path'
+     import {parse} from 'csv-parse/sync'
 
+     const testdata = parse(fs.readFileSync(path.join(__dirname,"../testdata/logintestdata.csv")),
+         {
+             columns:true,
+             skip_empty_lines: true
+         });
 
+     for(let data of testdata){
+        test('ddt test',async({page})=>{
+            console.log(data.id);
+            console.log(data.username);
+            console.log(data.password);
+        })
+     }
 
+51) DDT - Excel
+     npm install xlsx
+     import * as xlsx from "xlsx"
+     import path from 'path'
+
+     const workbook = xlsx.readFile(path.join(__dirname,"../testdata/logintestdataexcel.xlsx"));
+     const sheet = workbook.Sheets(workbook.SheetNames[0]);
+     const testdata = xlsx.util.sheet_to_json(sheet);
+
+    for(let data of testdata){
+            test('ddt test',async({page})=>{
+             console.log(data.id);
+             console.log(data.username);
+             console.log(data.password);
+            })
+    }
+
+52) DDT - json
+
+    import testdata from '../testdata/testdata.json'
+    for(let data of testdata){
+                test('ddt test',async({page})=>{
+                     console.log(data.id);
+                     console.log(data.username);
+                     console.log(data.password);
+                })
+    }
 
 
 
