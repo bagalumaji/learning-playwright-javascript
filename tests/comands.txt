@@ -147,6 +147,9 @@ jest - assertion
 1) expect(title).toBe('title') // to exact match
 2) expect(value).toBeTruthy() // boolean value comparison
 3) expect(locator).toHaveValue('value');
+4) expect(locator).toContainsText(text)
+5) expect(locator).toBeVisible()
+
 
 
 -----------
