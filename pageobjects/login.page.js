@@ -1,5 +1,6 @@
+import { expect } from "@playwright/test";
 export default class LoginPage {
-    #headerTextSelector="text=Login Page";
+    #headerText="Login Page";
     #textBoxUserNameSelector="id=username";
     #textBoxPasswordSelector="id=password";
     #btnLoginSelector="//button[normalize-space()='Login']";
@@ -12,7 +13,7 @@ export default class LoginPage {
         await this.page.goto("https://the-internet.herokuapp.com/login");
     }
     get #headerTextLocator(){
-        return this.page.locator(this.#headerTextSelector);
+        return this.page.getByRole('heading',{name:this.#headerText});
     }
     get #textBoxUserNameLocator(){
         return this.page.locator(this.#textBoxUserNameSelector);
@@ -24,8 +25,9 @@ export default class LoginPage {
         return this.page.locator(this.#btnLoginSelector);
     }
 
-    async isDisplayedHeaderText(){
-        return await this.#headerTextLocator.isVisible();
+    async verifyHeaderTextIsVisible() {
+        // return await this.#headerTextLocator.isVisible({ timeout: 20000 }); 
+        await expect(this.#headerTextLocator).toBeVisible({timeout:5000});
     }
     async enterUserName(username){
         await this.#textBoxUserNameLocator.fill(username);
