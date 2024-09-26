@@ -26,8 +26,10 @@ export default class LoginPage {
     }
 
     async verifyHeaderTextIsVisible() {
-        // return await this.#headerTextLocator.isVisible({ timeout: 20000 }); 
         await expect(this.#headerTextLocator).toBeVisible({timeout:5000});
+    }
+    async isDisplayedHeaderText(){
+        return await this.#headerTextLocator.isVisible();
     }
     async enterUserName(username){
         await this.#textBoxUserNameLocator.fill(username);
