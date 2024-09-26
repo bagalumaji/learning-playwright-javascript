@@ -9,5 +9,3 @@ import LoginPage from '../pageobjects/login.page'
 });
 
 export {expect};
-
-//export {expect} from "@playwright/test";
