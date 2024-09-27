@@ -132,6 +132,12 @@ playwright
                 })
     }
 
+53) page.screenshot({path:'path to store screenshot'})
+54) page.screenshot({path:'path to store screenshot',fullPage:true})
+55) page.locator('selector').screenshot({path:'path to store screenshot'})
+56) const bufferedScreenshot=await page.locator('selector').screenshot();
+         cl(bufferedScreenshot.toString('base64));
+57)
 
 
 
