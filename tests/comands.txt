@@ -197,9 +197,3 @@ execution
 2) npx playwright test test-name // specific test
 3) npx playwright test test-name --headed // test in headless mode
 4)
-
-
-
-npm init playwright@latest -D
-
-npm i @zerostep/playwright -D
