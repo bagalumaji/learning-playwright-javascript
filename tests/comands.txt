@@ -197,3 +197,5 @@ execution
 2) npx playwright test test-name // specific test
 3) npx playwright test test-name --headed // test in headless mode
 4)
+
+https://petstore.swagger.io/
